@@ -1,143 +1,70 @@
-# Smart Navigation & Route Optimization System
+# 🚗 Smart Navigation & Route Optimization System
 
-A JavaFX-based desktop application that demonstrates graph algorithms and route optimization through an interactive city-road network.
+A desktop-based **Smart Navigation and Route Optimization System** built using **Java, JavaFX, Maven, and SQLite**. The application demonstrates how classical **graph algorithms and data structures** can be applied to real-world navigation and route-planning problems.
 
-The system allows users to create and edit a graph of locations and roads, select a source and destination, choose different pathfinding algorithms and optimization strategies, and visualize the resulting route.
-
----
-
-## Overview
-
-The **Smart Navigation & Route Optimization System** is designed as a practical implementation of concepts from **Design and Analysis of Algorithms (DAA)**.
-
-The application represents a city as a weighted graph:
-
-- **Vertices (V)** → Locations such as College, Hospital, Airport, etc.
-- **Edges (E)** → Roads connecting locations
-- **Edge weights** → Distance, travel time, traffic, and other route-related factors
-
-The user can experiment with different algorithms and optimization criteria and observe how the selected route changes.
+The system allows users to create and manage a road network, select source and destination locations, choose different graph algorithms, and optimize routes according to distance, travel time, fuel efficiency, traffic, and road availability.
 
 ---
 
-## Features
+## 📌 Project Overview
+
+The Smart Navigation & Route Optimization System models a city as a **weighted graph**:
+
+- **Locations** → Graph vertices (V)
+- **Roads** → Graph edges (E)
+- **Distance** → Edge weight
+- **Speed limit** → Used for travel-time calculation
+- **Traffic level** → Affects travel time and route optimization
+- **Road status** → Open or Closed
+
+The application then uses graph traversal and shortest-path algorithms to find and visualize routes between locations.
+
+---
+
+## ✨ Key Features
 
 ### 🗺️ Interactive Graph Visualization
 
-- Visual representation of locations and roads
-- Select source and destination
-- Drag locations on the graph
-- Add and remove locations
-- Add and remove roads
-- Edit road properties
-- Visual indication of visited nodes and selected routes
-- Closed roads are visually distinguished
+- Visual representation of the city road network
+- Locations represented as graph nodes
+- Roads represented as graph edges
+- Distance labels displayed on roads
+- Interactive node selection
+- Drag-and-drop node positioning
+- Closed roads visually distinguished
+- Selected routes highlighted
 
-### 🧠 Pathfinding Algorithms
+### 🧭 Route Planning
 
-The system includes:
+Users can select:
 
-- **Dijkstra's Algorithm**
-- **A* Search**
-- **Breadth-First Search (BFS)**
-- **Depth-First Search (DFS)**
+- Source location
+- Destination location
+- Graph algorithm
+- Route optimization strategy
 
-These algorithms demonstrate different approaches to graph traversal and pathfinding.
+The system calculates and displays the resulting route.
 
-### ⚙️ Route Optimization
+### ⚙️ Supported Algorithms
 
-Routes can be optimized using:
+| Algorithm | Purpose | Complexity |
+|---|---|---|
+| **BFS** | Graph traversal / unweighted traversal | O(V + E) |
+| **DFS** | Depth-first graph traversal | O(V + E) |
+| **Dijkstra** | Weighted shortest-path routing | O((V + E) log V) |
+| **A\*** | Heuristic-based shortest-path search | Depends on implementation |
 
-- Shortest Distance
-- Fastest Route
-- Fuel Efficient
-- Avoid Traffic
-- Avoid Closed Roads
+### 🎯 Route Optimization Modes
 
-Different optimization strategies assign different costs to roads before the pathfinding algorithm determines the route.
+The application supports multiple optimization strategies:
 
-### 🚦 Traffic Management
+#### Shortest Distance
 
-Each road can have a traffic condition:
+Finds the route with the minimum total road distance.
 
-- Low
-- Medium
-- High
+#### Fastest Route
 
-Traffic affects estimated travel time and can influence route selection.
-
-### 🛣️ Road Properties
-
-Each road can store:
-
-- Distance
-- Speed Limit
-- Traffic Level
-- Road Type
-- Open / Closed status
-
-Supported road types include:
-
-- City Road
-- Highway
-- Expressway
-- Service Road
-
-### ⛽ Fuel Calculator
-
-The application can estimate:
-
-- Fuel required
-- Fuel cost
-- Mileage
-- Fuel price per litre
-
-### 📊 Graph Analytics
-
-The application provides graph-level statistics such as:
-
-- Total Nodes
-- Total Roads
-- Average Degree
-- Connected Components
-- Graph Density
-- Disconnected Nodes
-- Cycle Detection
-
-### 💾 Local Database
-
-The application uses **SQLite** for local persistence.
-
-It stores:
-
-- Locations
-- Roads
-- Road properties
-- Saved routes
-
-### 📁 Graph Management
-
-Users can:
-
-- Create a new graph
-- Open saved data
-- Save graph data
-- Import graph data
-- Export graph data
-- Reset the graph
-
----
-
-## Algorithms
-
-### Dijkstra's Algorithm
-
-Dijkstra's algorithm finds the minimum-cost path from a source vertex to a destination in a weighted graph with non-negative edge weights.
-
-In this application, the edge weight depends on the selected optimization mode.
-
-**Typical complexity:**
+Uses estimated travel time based on:
 
 ```text
-Time:  O((V + E) log V)
-Space: O(V)
+Travel Time = Distance / Speed × Traffic Multiplier
