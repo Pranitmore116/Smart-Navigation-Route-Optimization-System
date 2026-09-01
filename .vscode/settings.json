@@ -1,0 +1,21 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.server.launchMode": "Standard",
+    "java.import.maven.enabled": true,
+    "java.import.exclusions": [
+        "**/target/**",
+        "**/dist/**",
+        "**/dist-resized/**",
+        "**/dist-updated/**",
+        "**/dist-polished/**"
+    ],
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-17",
+            "path": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.17.10-hotspot",
+            "default": true
+        }
+    ],
+    "css.validate": false,
+    "css.lint.unknownProperties": "ignore"
+}
